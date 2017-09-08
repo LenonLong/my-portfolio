@@ -1,0 +1,12 @@
+.social-icons {
+  text-align: center;
+
+  &__icon {
+    color: $mainOrange;
+    display: inline-block;
+    margin: 0 15px;
+    width: 72px;
+    height: 75px;
+    text-decoration: none;
+  }
+}

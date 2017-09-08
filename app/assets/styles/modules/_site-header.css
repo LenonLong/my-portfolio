@@ -1,0 +1,156 @@
+
+.site-header {
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  transition: background-color .3s ease-out;
+
+&--is-expanded {
+  background-color: rgba(47,85,114, .55);
+}
+
+@mixin atMedium {
+  /*header stays lock to the top*/
+  position: fixed;
+  background-color: rgba(47,85,114, .7);
+
+  &--dark {
+    background-color: rgba(23, 51, 72, .85);
+  }
+}
+
+&__btn_container {
+
+
+  @mixin atMedium {
+    float: right;
+  }
+
+  }
+
+
+  &__logo {
+    top: 0;
+    left:10%;
+    transform: translateX(-50%) scale(.6);
+    /*our logo transition*/
+    transition: transform .4s ease-out;
+    transform-origin: 50% 50%;
+    position: absolute;
+    /*background-color:rgba(47,85,114, .3);*/
+    padding: 5px 10px;
+    width: 15%;
+
+    @mixin atMedium {
+      left: auto;
+      transform: translateX(0);
+      top: 10%;
+      left: 2%;
+
+      .site-header--dark & {
+        transform: scale(.58);
+
+      }
+    }
+
+    @mixin atLarge {
+      top: -10%;
+      width: 12%;
+    }
+  }
+
+  &__menu-icon {
+
+    width: 20px;
+    height: 19px;
+    /*background-color: #FFF;*/
+    position: absolute;
+/*solution to when we click to close, we fix this by giving a larger z value*/
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: $mainBlue;
+    transform-origin: 0 0;
+    transition: transform .4s ease-out;
+  }
+  &__middle {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: $mainBlue;
+    transition: all .4s ease-out;
+    transform-origin: 0 50%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: $mainBlue;
+    /*0 = points to bottom left corner 100% = points to vertical bottom*/
+    transform-origin: 0 100%;
+    transition: transform .4s ease-out;
+
+  }
+    @mixin atMedium {
+      display: none;
+    }
+  }
+
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
+
+  .site-header__menu-icon__middle {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  }
+  &__menu-icon--close-x {
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+  }
+
+/*reveals menu when clicked */
+  &__menu-content {
+/*the content will be invisible until --is-visible is clicked on*/
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all .3s ease-out;
+    position: relative;
+/*when we use z-index we need to use position: relative*/
+    z-index: -10;
+    padding-top: 90px;
+    text-align: center;
+
+    @mixin atMedium {
+      opacity: 1;
+      z-index: 1;
+      padding-top: 0;
+      transform: scale(1);
+
+    }
+/*menu-bar*/
+    &--is-visible {
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
+    }
+  }
+}

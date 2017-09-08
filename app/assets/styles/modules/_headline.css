@@ -1,0 +1,9 @@
+
+.headline {
+
+    &--no-t-margin {
+      font-weight: 300;
+      margin-top: 0;
+    }
+
+}

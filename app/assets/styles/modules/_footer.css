@@ -1,0 +1,50 @@
+
+.footer {
+  margin: 0 auto;
+  padding-top: 2%;
+  max-width: 940px;
+  height: 100px;
+
+
+
+&__copyright_text {
+  float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  padding-top: 1.5em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  color: #a3a3a3;
+}
+
+}
+
+.social {
+  list-style-type: none;
+}
+
+.social li  {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  float: left;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: $mainOrange;
+  transition: 1.1s;
+
+  @mixin atSmall {
+    float: right;
+    display: inline;
+  }
+}
+.social a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.social li:hover {
+  color: $mainBlue;
+}
